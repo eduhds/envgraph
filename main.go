@@ -3,21 +3,23 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 	"path/filepath"
 	"time"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
+const PORT = ":8090"
+
 func getApiEnv(c *gin.Context) {
-	files, err := filepath.Glob("/home/**/*.env*")
+	rootDir := os.Getenv("HOME")
+
+	files, err := filepath.Glob(rootDir + "/**/**/**/*.env*")
 
 	if err != nil {
 		//log.Fatal(err)
-	}
-
-	for _, file := range files {
-		fmt.Println(file)
 	}
 
 	c.JSON(200, gin.H{
@@ -27,16 +29,28 @@ func getApiEnv(c *gin.Context) {
 }
 
 func main() {
-	fmt.Println("Hello, World!")
+	fmt.Println("Running at http://localhost" + PORT)
 
 	router := gin.Default()
 
+	router.Use(cors.New(cors.Config{
+		AllowOrigins:  []string{"*"},
+		AllowMethods:  []string{"GET", "POST", "OPTIONS"},
+		AllowHeaders:  []string{"Origin", "Content-Type", "Content-Length"},
+		ExposeHeaders: []string{"Content-Length"},
+		MaxAge:        12 * time.Hour,
+	}))
+
 	router.Static("/app", "./dist")
+
+	router.Any("/", func(c *gin.Context) {
+		c.Redirect(http.StatusFound, "/app")
+	})
 
 	router.GET("/api/env", getApiEnv)
 
 	server := &http.Server{
-		Addr:           ":8090",
+		Addr:           PORT,
 		Handler:        router,
 		ReadTimeout:    10 * time.Second,
 		WriteTimeout:   10 * time.Second,
