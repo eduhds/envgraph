@@ -1,4 +1,4 @@
-module eduhds/leve
+module eduhds/envgraph
 
 go 1.21.6
 
