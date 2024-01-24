@@ -2,9 +2,12 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 	"path/filepath"
+	"regexp"
+	"strings"
 	"time"
 
 	"github.com/gin-contrib/cors"
@@ -15,16 +18,43 @@ const PORT = ":8090"
 
 func getApiEnv(c *gin.Context) {
 	rootDir := os.Getenv("HOME")
+	var files []string = []string{}
 
-	files, err := filepath.Glob(rootDir + "/**/**/**/*.env*")
+	err := filepath.Walk(rootDir, func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			fmt.Println(err)
+			return nil
+		}
+
+		if info.IsDir() {
+			if strings.HasPrefix(info.Name(), ".") ||
+				info.Name() == "node_modules" ||
+				info.Name() == "dist" ||
+				info.Name() == "build" ||
+				info.Name() == "vendor" {
+				return filepath.SkipDir
+			}
+		}
+
+		reg, err2 := regexp.Compile("^\\.(.{0,})env(.{0,})")
+
+		if err2 != nil {
+			return err2
+		}
+
+		if reg.MatchString(info.Name()) {
+			files = append(files, path)
+		}
+
+		return nil
+	})
 
 	if err != nil {
-		//log.Fatal(err)
+		log.Fatal(err)
 	}
 
 	c.JSON(200, gin.H{
-		"message": "teste",
-		"envs":    files,
+		"envs": files,
 	})
 }
 
@@ -52,8 +82,8 @@ func main() {
 	server := &http.Server{
 		Addr:           PORT,
 		Handler:        router,
-		ReadTimeout:    10 * time.Second,
-		WriteTimeout:   10 * time.Second,
+		ReadTimeout:    30 * time.Second,
+		WriteTimeout:   30 * time.Second,
 		MaxHeaderBytes: 1 << 20,
 	}
 
