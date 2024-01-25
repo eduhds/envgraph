@@ -20,6 +20,26 @@ func getApiEnv(c *gin.Context) {
 	rootDir := os.Getenv("HOME")
 	var files []string = []string{}
 
+	envPath := c.Query("path")
+
+	if envPath != "" {
+		envContent := ""
+
+		content, err := os.ReadFile("/" + envPath)
+
+		if err != nil {
+			log.Fatal(err)
+		} else {
+			envContent = string(content)
+		}
+
+		c.JSON(200, gin.H{
+			"content": envContent,
+		})
+
+		return
+	}
+
 	err := filepath.Walk(rootDir, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			fmt.Println(err)

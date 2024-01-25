@@ -20,11 +20,21 @@ function EnvGraph() {
   const [nodes, setNodes] = useState<NodeData[]>([]);
   const [edges, setEdges] = useState<EdgeData[]>([]);
   const [selectedNodeId, setSelectedNodeId] = useState('');
+  const [copied, setCopied] = useState(false);
 
   const { data, isLoading } = useQuery({
     queryKey: ['envs'],
     queryFn: () =>
       fetch(`${import.meta.env.DEV ? 'http://localhost:8090' : ''}/api/env`).then(res => res.json())
+  });
+
+  const { isLoading: isLoadingEnvContent, data: dataEnv } = useQuery({
+    queryKey: ['env-content'],
+    enabled: !!selectedNodeId,
+    queryFn: () =>
+      fetch(
+        `${import.meta.env.DEV ? 'http://localhost:8090' : ''}/api/env?path=${selectedNodeId}`
+      ).then(res => res.json())
   });
 
   useEffect(() => {
@@ -78,7 +88,7 @@ function EnvGraph() {
           <Node
             {...props}
             onClick={() => {
-              if (props.id.includes('.env')) {
+              if (props.id.match(/\.(.{0,})env(.{0,})/g)) {
                 setSelectedNodeId(props.id);
                 // @ts-ignore
                 document.getElementById('modal-env')?.showModal?.();
@@ -89,7 +99,10 @@ function EnvGraph() {
       />
 
       <div className='join absolute top-5 left-5'>
-        <button className='btn join-item' onClick={() => canvasRef.current?.zoomOut?.()}>
+        <button
+          className='btn join-item'
+          onClick={() => canvasRef.current?.zoomOut?.()}
+          disabled={isLoading}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
@@ -104,7 +117,10 @@ function EnvGraph() {
             />
           </svg>
         </button>
-        <button className='btn join-item' onClick={() => canvasRef.current?.zoomIn?.()}>
+        <button
+          className='btn join-item'
+          onClick={() => canvasRef.current?.zoomIn?.()}
+          disabled={isLoading}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
@@ -123,18 +139,86 @@ function EnvGraph() {
 
       <dialog id='modal-env' className='modal'>
         <div className='modal-box'>
-          <h3 className='font-bold text-lg'>{selectedNodeId}</h3>
-          <p className='py-4'>Press ESC key or click the button below to close</p>
+          <h3 className='font-bold text-lg'>{selectedNodeId.split('/').pop()}</h3>
+
+          <div className='w-full flex justify-center overflow-x-auto mt-4'>
+            {isLoadingEnvContent ? (
+              <span className='loading loading-bars loading-md'></span>
+            ) : (
+              <pre className='w-full'>{dataEnv?.content || ''}</pre>
+            )}
+          </div>
+
           <div className='modal-action'>
+            <button
+              className='btn btn-square'
+              disabled={!dataEnv?.content}
+              onClick={() => {
+                navigator.clipboard.writeText(dataEnv?.content).then(
+                  () => {
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 2000);
+                  },
+                  err => console.log(err)
+                );
+              }}>
+              {copied ? (
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  strokeWidth={1.5}
+                  stroke='currentColor'
+                  className='w-6 h-6'>
+                  <path strokeLinecap='round' strokeLinejoin='round' d='m4.5 12.75 6 6 9-13.5' />
+                </svg>
+              ) : (
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  strokeWidth={1.5}
+                  stroke='currentColor'
+                  className='w-6 h-6'>
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    d='M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75'
+                  />
+                </svg>
+              )}
+            </button>
+
+            <a
+              download={selectedNodeId.split('/').join('_') + '.txt'}
+              href={`data:text/plain;charset=utf-8,${encodeURIComponent(dataEnv?.content)}`}
+              className='btn btn-square'>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 24 24'
+                strokeWidth={1.5}
+                stroke='currentColor'
+                className='w-6 h-6'>
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  d='M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3'
+                />
+              </svg>
+            </a>
+
             <form method='dialog'>
-              <button className='btn'>Close</button>
+              <button className='btn' onClick={() => setSelectedNodeId('')}>
+                Close
+              </button>
             </form>
           </div>
         </div>
       </dialog>
 
       {isLoading && (
-        <progress className='progress progress-primary w-full absolute top-0'></progress>
+        <progress className='progress progress-primary w-full absolute top-0 rounded-none'></progress>
       )}
     </div>
   );
