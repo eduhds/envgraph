@@ -22,7 +22,7 @@ function EnvGraph() {
   const [selectedNodeId, setSelectedNodeId] = useState('');
   const [copied, setCopied] = useState(false);
 
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, error } = useQuery({
     queryKey: ['envs'],
     queryFn: () =>
       fetch(`${import.meta.env.DEV ? 'http://localhost:8090' : ''}/api/env`).then(res => res.json())
@@ -219,6 +219,14 @@ function EnvGraph() {
 
       {isLoading && (
         <progress className='progress progress-primary w-full absolute top-0 rounded-none'></progress>
+      )}
+
+      {error && (
+        <div className='toast toast-end'>
+          <div className='alert alert-error'>
+            <span>{error.message}</span>
+          </div>
+        </div>
       )}
     </div>
   );

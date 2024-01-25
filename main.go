@@ -48,6 +48,8 @@ func getApiEnv(c *gin.Context) {
 
 		if info.IsDir() {
 			if strings.HasPrefix(info.Name(), ".") ||
+				info.Name() == "Applications" ||
+				info.Name() == "Library" ||
 				info.Name() == "node_modules" ||
 				info.Name() == "dist" ||
 				info.Name() == "build" ||
