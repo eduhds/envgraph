@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"path"
 	"path/filepath"
 	"regexp"
 	"strings"
@@ -81,8 +82,15 @@ func getApiEnv(c *gin.Context) {
 }
 
 func main() {
+	ex, err := os.Executable()
+	if err != nil {
+		log.Fatal(err)
+	}
+	dir := path.Dir(ex)
+
 	fmt.Println("Running at http://localhost" + PORT)
 
+	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
 
 	router.Use(cors.New(cors.Config{
@@ -93,7 +101,7 @@ func main() {
 		MaxAge:        12 * time.Hour,
 	}))
 
-	router.Static("/app", "./dist")
+	router.Static("/app", path.Join(dir, "dist"))
 
 	router.Any("/", func(c *gin.Context) {
 		c.Redirect(http.StatusFound, "/app")
