@@ -9,7 +9,10 @@
 
 ENV files graph visualization.
 
+<img src="screenshot.png" />
+
 ## Credits
 
 - [saadeghi/daisyui](https://github.com/saadeghi/daisyui)
 - [reaviz/reaflow](https://github.com/reaviz/reaflow)
+- [gin-gonic/gin](https://github.com/gin-gonic/gin)
