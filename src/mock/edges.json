@@ -1,0 +1,208 @@
+[
+  {
+    "id": "home/jhondoe-home/jhondoe/.zshenv",
+    "from": "home/jhondoe",
+    "to": "home/jhondoe/.zshenv"
+  },
+  { "id": "home-home/jhondoe", "from": "home", "to": "home/jhondoe" },
+  {
+    "id": "home/jhondoe/Containers/Ubuntu-home/jhondoe/Containers/Ubuntu/.zshenv",
+    "from": "home/jhondoe/Containers/Ubuntu",
+    "to": "home/jhondoe/Containers/Ubuntu/.zshenv"
+  },
+  {
+    "id": "home/jhondoe/Containers-home/jhondoe/Containers/Ubuntu",
+    "from": "home/jhondoe/Containers",
+    "to": "home/jhondoe/Containers/Ubuntu"
+  },
+  {
+    "id": "home/jhondoe-home/jhondoe/Containers",
+    "from": "home/jhondoe",
+    "to": "home/jhondoe/Containers"
+  },
+  {
+    "id": "home/jhondoe/SyncService-home/jhondoe/SyncService/.env.development.local",
+    "from": "home/jhondoe/SyncService",
+    "to": "home/jhondoe/SyncService/.env.development.local"
+  },
+  {
+    "id": "home/jhondoe-home/jhondoe/SyncService",
+    "from": "home/jhondoe",
+    "to": "home/jhondoe/SyncService"
+  },
+  {
+    "id": "home/jhondoe/Projects/project1-home/jhondoe/Projects/project1/.env.development.local",
+    "from": "home/jhondoe/Projects/project1",
+    "to": "home/jhondoe/Projects/project1/.env.development.local"
+  },
+  {
+    "id": "home/jhondoe/Projects-home/jhondoe/Projects/project1",
+    "from": "home/jhondoe/Projects",
+    "to": "home/jhondoe/Projects/project1"
+  },
+  {
+    "id": "home/jhondoe-home/jhondoe/Projects",
+    "from": "home/jhondoe",
+    "to": "home/jhondoe/Projects"
+  },
+  {
+    "id": "home/jhondoe/Projects/project1-home/jhondoe/Projects/project1/.env.example",
+    "from": "home/jhondoe/Projects/project1",
+    "to": "home/jhondoe/Projects/project1/.env.example"
+  },
+  {
+    "id": "home/jhondoe/Projects/project1-home/jhondoe/Projects/project1/.env.production.local",
+    "from": "home/jhondoe/Projects/project1",
+    "to": "home/jhondoe/Projects/project1/.env.production.local"
+  },
+  {
+    "id": "home/jhondoe/Projects/project2/admin-home/jhondoe/Projects/project2/admin/.env.development",
+    "from": "home/jhondoe/Projects/project2/admin",
+    "to": "home/jhondoe/Projects/project2/admin/.env.development"
+  },
+  {
+    "id": "home/jhondoe/Projects/project2-home/jhondoe/Projects/project2/admin",
+    "from": "home/jhondoe/Projects/project2",
+    "to": "home/jhondoe/Projects/project2/admin"
+  },
+  {
+    "id": "home/jhondoe/Projects-home/jhondoe/Projects/project2",
+    "from": "home/jhondoe/Projects",
+    "to": "home/jhondoe/Projects/project2"
+  },
+  {
+    "id": "home/jhondoe/Projects/project2/admin-home/jhondoe/Projects/project2/admin/.env.example",
+    "from": "home/jhondoe/Projects/project2/admin",
+    "to": "home/jhondoe/Projects/project2/admin/.env.example"
+  },
+  {
+    "id": "home/jhondoe/Projects/project2/mobile/ios-home/jhondoe/Projects/project2/mobile/ios/.xcode.env",
+    "from": "home/jhondoe/Projects/project2/mobile/ios",
+    "to": "home/jhondoe/Projects/project2/mobile/ios/.xcode.env"
+  },
+  {
+    "id": "home/jhondoe/Projects/project2/mobile-home/jhondoe/Projects/project2/mobile/ios",
+    "from": "home/jhondoe/Projects/project2/mobile",
+    "to": "home/jhondoe/Projects/project2/mobile/ios"
+  },
+  {
+    "id": "home/jhondoe/Projects/project2-home/jhondoe/Projects/project2/mobile",
+    "from": "home/jhondoe/Projects/project2",
+    "to": "home/jhondoe/Projects/project2/mobile"
+  },
+  {
+    "id": "home/jhondoe/Projects/project2/web-home/jhondoe/Projects/project2/web/.env.example",
+    "from": "home/jhondoe/Projects/project2/web",
+    "to": "home/jhondoe/Projects/project2/web/.env.example"
+  },
+  {
+    "id": "home/jhondoe/Projects/project2-home/jhondoe/Projects/project2/web",
+    "from": "home/jhondoe/Projects/project2",
+    "to": "home/jhondoe/Projects/project2/web"
+  },
+  {
+    "id": "home/jhondoe/Projects/project3/apps/app1-home/jhondoe/Projects/project3/apps/app1/.env.example",
+    "from": "home/jhondoe/Projects/project3/apps/app1",
+    "to": "home/jhondoe/Projects/project3/apps/app1/.env.example"
+  },
+  {
+    "id": "home/jhondoe/Projects/project3/apps-home/jhondoe/Projects/project3/apps/app1",
+    "from": "home/jhondoe/Projects/project3/apps",
+    "to": "home/jhondoe/Projects/project3/apps/app1"
+  },
+  {
+    "id": "home/jhondoe/Projects/project3-home/jhondoe/Projects/project3/apps",
+    "from": "home/jhondoe/Projects/project3",
+    "to": "home/jhondoe/Projects/project3/apps"
+  },
+  {
+    "id": "home/jhondoe/Projects-home/jhondoe/Projects/project3",
+    "from": "home/jhondoe/Projects",
+    "to": "home/jhondoe/Projects/project3"
+  },
+  {
+    "id": "home/jhondoe/Projects/project3/apps/app2-home/jhondoe/Projects/project3/apps/app2/.env.development",
+    "from": "home/jhondoe/Projects/project3/apps/app2",
+    "to": "home/jhondoe/Projects/project3/apps/app2/.env.development"
+  },
+  {
+    "id": "home/jhondoe/Projects/project3/apps-home/jhondoe/Projects/project3/apps/app2",
+    "from": "home/jhondoe/Projects/project3/apps",
+    "to": "home/jhondoe/Projects/project3/apps/app2"
+  },
+  {
+    "id": "home/jhondoe/Projects/project3/apps/app2-home/jhondoe/Projects/project3/apps/app2/.env.production",
+    "from": "home/jhondoe/Projects/project3/apps/app2",
+    "to": "home/jhondoe/Projects/project3/apps/app2/.env.production"
+  },
+  {
+    "id": "home/jhondoe/Projects/project3/apps/app2-home/jhondoe/Projects/project3/apps/app2/.env.staging",
+    "from": "home/jhondoe/Projects/project3/apps/app2",
+    "to": "home/jhondoe/Projects/project3/apps/app2/.env.staging"
+  },
+  {
+    "id": "home/jhondoe/Projects/project3/apps/app2/ios-home/jhondoe/Projects/project3/apps/app2/ios/.xcode.env",
+    "from": "home/jhondoe/Projects/project3/apps/app2/ios",
+    "to": "home/jhondoe/Projects/project3/apps/app2/ios/.xcode.env"
+  },
+  {
+    "id": "home/jhondoe/Projects/project3/apps/app2-home/jhondoe/Projects/project3/apps/app2/ios",
+    "from": "home/jhondoe/Projects/project3/apps/app2",
+    "to": "home/jhondoe/Projects/project3/apps/app2/ios"
+  },
+  {
+    "id": "home/jhondoe/Projects/project3/apps/app3/ios-home/jhondoe/Projects/project3/apps/app3/ios/.xcode.env",
+    "from": "home/jhondoe/Projects/project3/apps/app3/ios",
+    "to": "home/jhondoe/Projects/project3/apps/app3/ios/.xcode.env"
+  },
+  {
+    "id": "home/jhondoe/Projects/project3/apps/app3-home/jhondoe/Projects/project3/apps/app3/ios",
+    "from": "home/jhondoe/Projects/project3/apps/app3",
+    "to": "home/jhondoe/Projects/project3/apps/app3/ios"
+  },
+  {
+    "id": "home/jhondoe/Projects/project3/apps-home/jhondoe/Projects/project3/apps/app3",
+    "from": "home/jhondoe/Projects/project3/apps",
+    "to": "home/jhondoe/Projects/project3/apps/app3"
+  },
+  {
+    "id": "home/jhondoe/Projects/project4-home/jhondoe/Projects/project4/.envrc",
+    "from": "home/jhondoe/Projects/project4",
+    "to": "home/jhondoe/Projects/project4/.envrc"
+  },
+  {
+    "id": "home/jhondoe/Projects-home/jhondoe/Projects/project4",
+    "from": "home/jhondoe/Projects",
+    "to": "home/jhondoe/Projects/project4"
+  },
+  {
+    "id": "home/jhondoe/Projects/project5/web-home/jhondoe/Projects/project5/web/.env.development.local",
+    "from": "home/jhondoe/Projects/project5/web",
+    "to": "home/jhondoe/Projects/project5/web/.env.development.local"
+  },
+  {
+    "id": "home/jhondoe/Projects/project5-home/jhondoe/Projects/project5/web",
+    "from": "home/jhondoe/Projects/project5",
+    "to": "home/jhondoe/Projects/project5/web"
+  },
+  {
+    "id": "home/jhondoe/Projects-home/jhondoe/Projects/project5",
+    "from": "home/jhondoe/Projects",
+    "to": "home/jhondoe/Projects/project5"
+  },
+  {
+    "id": "home/jhondoe/Projects/project5/web-home/jhondoe/Projects/project5/web/.env.example",
+    "from": "home/jhondoe/Projects/project5/web",
+    "to": "home/jhondoe/Projects/project5/web/.env.example"
+  },
+  {
+    "id": "home/jhondoe/Projects/project5/web-home/jhondoe/Projects/project5/web/.env.production.local",
+    "from": "home/jhondoe/Projects/project5/web",
+    "to": "home/jhondoe/Projects/project5/web/.env.production.local"
+  },
+  {
+    "id": "home/jhondoe/Projects/project5/web-home/jhondoe/Projects/project5/web/.env.testing.local",
+    "from": "home/jhondoe/Projects/project5/web",
+    "to": "home/jhondoe/Projects/project5/web/.env.testing.local"
+  }
+]

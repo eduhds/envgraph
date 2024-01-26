@@ -1,0 +1,66 @@
+[
+  { "id": "home/jhondoe/.zshenv", "text": ".zshenv" },
+  { "id": "home/jhondoe", "text": "jhondoe" },
+  { "id": "home", "text": "home" },
+  { "id": "home/jhondoe/Containers/Ubuntu/.zshenv", "text": ".zshenv" },
+  { "id": "home/jhondoe/Containers/Ubuntu", "text": "Ubuntu" },
+  { "id": "home/jhondoe/Containers", "text": "Containers" },
+  { "id": "home/jhondoe/SyncService/.env.development.local", "text": ".env.development.local" },
+  { "id": "home/jhondoe/SyncService", "text": "SyncService" },
+  {
+    "id": "home/jhondoe/Projects/project1/.env.development.local",
+    "text": ".env.development.local"
+  },
+  { "id": "home/jhondoe/Projects/project1", "text": "project1" },
+  { "id": "home/jhondoe/Projects", "text": "Projects" },
+  { "id": "home/jhondoe/Projects/project1/.env.example", "text": ".env.example" },
+  {
+    "id": "home/jhondoe/Projects/project1/.env.production.local",
+    "text": ".env.production.local"
+  },
+  { "id": "home/jhondoe/Projects/project2/admin/.env.development", "text": ".env.development" },
+  { "id": "home/jhondoe/Projects/project2/admin", "text": "admin" },
+  { "id": "home/jhondoe/Projects/project2", "text": "project2" },
+  { "id": "home/jhondoe/Projects/project2/admin/.env.example", "text": ".env.example" },
+  { "id": "home/jhondoe/Projects/project2/mobile/ios/.xcode.env", "text": ".xcode.env" },
+  { "id": "home/jhondoe/Projects/project2/mobile/ios", "text": "ios" },
+  { "id": "home/jhondoe/Projects/project2/mobile", "text": "mobile" },
+  { "id": "home/jhondoe/Projects/project2/web/.env.example", "text": ".env.example" },
+  { "id": "home/jhondoe/Projects/project2/web", "text": "web" },
+  { "id": "home/jhondoe/Projects/project3/apps/app1/.env.example", "text": ".env.example" },
+  { "id": "home/jhondoe/Projects/project3/apps/app1", "text": "app1" },
+  { "id": "home/jhondoe/Projects/project3/apps", "text": "apps" },
+  { "id": "home/jhondoe/Projects/project3", "text": "project3" },
+  {
+    "id": "home/jhondoe/Projects/project3/apps/app2/.env.development",
+    "text": ".env.development"
+  },
+  { "id": "home/jhondoe/Projects/project3/apps/app2", "text": "app2" },
+  {
+    "id": "home/jhondoe/Projects/project3/apps/app2/.env.production",
+    "text": ".env.production"
+  },
+  { "id": "home/jhondoe/Projects/project3/apps/app2/.env.staging", "text": ".env.staging" },
+  { "id": "home/jhondoe/Projects/project3/apps/app2/ios/.xcode.env", "text": ".xcode.env" },
+  { "id": "home/jhondoe/Projects/project3/apps/app2/ios", "text": "ios" },
+  { "id": "home/jhondoe/Projects/project3/apps/app3/ios/.xcode.env", "text": ".xcode.env" },
+  { "id": "home/jhondoe/Projects/project3/apps/app3/ios", "text": "ios" },
+  { "id": "home/jhondoe/Projects/project3/apps/app3", "text": "app3" },
+  { "id": "home/jhondoe/Projects/project4/.envrc", "text": ".envrc" },
+  { "id": "home/jhondoe/Projects/project4", "text": "project4" },
+  {
+    "id": "home/jhondoe/Projects/project5/web/.env.development.local",
+    "text": ".env.development.local"
+  },
+  { "id": "home/jhondoe/Projects/project5/web", "text": "web" },
+  { "id": "home/jhondoe/Projects/project5", "text": "project5" },
+  { "id": "home/jhondoe/Projects/project5/web/.env.example", "text": ".env.example" },
+  {
+    "id": "home/jhondoe/Projects/project5/web/.env.production.local",
+    "text": ".env.production.local"
+  },
+  {
+    "id": "home/jhondoe/Projects/project5/web/.env.testing.local",
+    "text": ".env.testing.local"
+  }
+]
